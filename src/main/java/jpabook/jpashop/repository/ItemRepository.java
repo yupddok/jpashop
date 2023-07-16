@@ -17,7 +17,9 @@ public class ItemRepository {
         if (item.getId() == null) {
             em.persist(item);
         } else {
-            em.merge(item);
+            Item merge = em.merge(item);
+            // item이 영속성 컨텍스트로 바뀌는거아님
+            // merge가 영속성 컨텍스트에서 관리되는 객체
         }
     }
 
